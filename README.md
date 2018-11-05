@@ -63,8 +63,21 @@ With LOGLEVEL='info':
 
 Other variables (also can be set as previous):
 ----------
+```bash
 INDEX='index.html'
+```
 Default index filename.
 
+```bash
 DIRINDEX=1
+```
 If it's equal 1, instead of index.html you will get list of files and directories with ability of downloading as arcives or as is.
+
+```bash 
+ERRPATH=`dirname "$0"`'/errors'
+```
+Path to the custom html files for the errors messages like ./errors/404.html, 503.html, etc. If file for the error code is not exists, the common.html error file will be used (next variable).
+```bash
+ERRORHTML=`dirname "$0"`'/errors/common.html'
+```
+Path to the custom html file for the errors, that hasn't dedicated html file like 404.html. If this file not exists, internal error message will be shown. If you place **%ERROR%** code to the common.html file, it will be replaced by server to the error code and short message like this: **404 Not Found**.
