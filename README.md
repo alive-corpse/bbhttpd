@@ -1,6 +1,8 @@
 # bbhttpd
 Tiny web server with one requirement - busybox.
 
+![](/bbhttpd.png)
+
 Notice:
 -----------
 It's not approach for production. This tool was made for quick file transferring from platforms busybox based platforms like as OpenWRT routers, android phones, small alpine containers and others. It also wasn't properly tested for security vulnerabilities, so, use it for your own risk.
@@ -8,6 +10,17 @@ It's not approach for production. This tool was made for quick file transferring
 Requirements:
 ------------
 It needs only busybox binary!
+
+Use cases:
+------------
+* Downloading some files from remote hosts (also gzipped and bzipped)
+* Downloading directories as archives
+* Viewing remote files directly in browser - logs, pictures, etc
+* Testing some local simple html projects like bashblog
+
+Installing:
+------------
+wget https://raw.githubusercontent.com/alive-corpse/bbhttpd/master/bbhttpd && chmod +x ./bbhttpd
 
 Usage:
 ------------
@@ -80,4 +93,7 @@ Path to the custom html files for the errors messages like ./errors/404.html, 50
 ```bash
 ERRORHTML=`dirname "$0"`'/errors/common.html'
 ```
-Path to the custom html file for the errors, that hasn't dedicated html file like 404.html. If this file not exists, internal error message will be shown. If you place **%ERROR%** code to the common.html file, it will be replaced by server to the error code and short message like this: **404 Not Found**.
+Path to the custom html file for the errors, that hasn't dedicated html file like 404.html. If this file not exists, internal error message will be shown. If you place `%ERROR%` code to the common.html file, it will be replaced by server to the error code and short message like this: `404 Not Found`.
+
+Default internal error message:  
+![](/404.png)
